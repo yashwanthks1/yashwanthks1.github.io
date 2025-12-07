@@ -13,7 +13,7 @@ export default function HomePage() {
   return (
     <main>
       {/* ========================================================= */}
-      {/* 1. HERO SECTION */}
+      {/* 1. HERO SECTION — PREMIUM DESIGN */}
       {/* ========================================================= */}
 
       <Section id="hero" className="pt-28 sm:pt-32">
@@ -22,45 +22,104 @@ export default function HomePage() {
           initial="hidden"
           animate="visible"
           transition={{ duration: 0.7 }}
-          className="text-center"
+          className="flex flex-col md:flex-row items-center md:items-start gap-12 md:gap-20"
         >
-          <p className="inline-flex items-center rounded-full border border-slate-700 bg-bg-soft/70 px-3 py-1 text-xs sm:text-sm text-slate-300 shadow">
-            Backend Engineer · Building scalable systems with Java
-          </p>
 
-          <h1 className="mt-4 text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight">
-            Hi, I&apos;m{" "}
-            <span className="bg-gradient-to-r from-sky-400 to-indigo-400 bg-clip-text text-transparent">
-              Yashwanth K S
-            </span>{" "}
-            👋
-          </h1>
+          {/* LEFT —— TEXT CONTENT */}
+          <div className="text-center md:text-left max-w-2xl">
 
-          <p className="mt-4 text-base sm:text-lg max-w-2xl mx-auto text-slate-300/90">
-            I specialize in designing and building reliable, high-performance backend
-            systems using <span className="font-semibold text-sky-300">Java</span>,{" "}
-            <span className="font-semibold text-sky-300">Spring Boot</span>,{" "}
-            <span className="font-semibold text-sky-300">Spring WebFlux</span>,
-            and PostgreSQL — with a strong focus on scalability, automation, and clean
-            architecture.
-          </p>
+            <p className="inline-flex items-center rounded-full border border-slate-700 bg-slate-900/40 px-3 py-1 text-xs sm:text-sm text-slate-300 shadow">
+              Backend Engineer · Building scalable systems with Java
+            </p>
 
-          <div className="mt-8 flex justify-center gap-4">
-            <a
-              href="#projects"
-              className="rounded-full bg-sky-500 px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-sky-500/40 hover:bg-sky-400 transition"
-            >
-              View Projects
-            </a>
-            <a
-              href="#contact"
-              className="rounded-full border border-slate-600 px-5 py-2.5 text-sm font-semibold text-slate-100 hover:border-sky-400 hover:text-sky-300 transition"
-            >
-              Contact Me
-            </a>
+            <h1 className="text-4xl sm:text-6xl font-extrabold leading-tight flex flex-wrap items-center gap-3">
+              <span className="whitespace-nowrap">
+                Hi, I'm <span className="text-sky-400">Yashwanth K S</span>
+              </span>
+              <span className="wave text-5xl">👋</span>
+            </h1>
+
+
+
+            <p className="mt-4 text-base sm:text-lg text-slate-300/90">
+              I build scalable backend systems using{" "}
+              <span className="text-sky-300 font-semibold">Java</span>,{" "}
+              <span className="text-sky-300 font-semibold">Spring Boot</span>,{" "}
+              <span className="text-sky-300 font-semibold">WebFlux</span>, and PostgreSQL —
+              focused on automation, performance, and clean architecture.
+            </p>
+
+            {/* BUTTONS */}
+            <div className="mt-8 flex flex-wrap gap-4">
+
+              <a
+                href="#projects"
+                className="rounded-full bg-sky-500 px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-sky-500/40 hover:bg-sky-400 transition"
+              >
+                View Projects
+              </a>
+
+              <a
+                href="#contact"
+                className="rounded-full border border-slate-600 px-5 py-2.5 text-sm font-semibold text-slate-100 hover:border-sky-400 hover:text-sky-300 transition"
+              >
+                Contact Me
+              </a>
+
+              {/* === PREMIUM RESUME BUTTON === */}
+              <a
+                href="/resume/Yashwanth-KS-Resume.pdf"
+                download
+                className="group rounded-full px-5 py-2.5 text-sm font-semibold transition
+            bg-gradient-to-r from-emerald-500 to-teal-400 text-slate-950
+            shadow-lg shadow-emerald-500/30 hover:shadow-emerald-400/40
+            hover:scale-[1.03]"
+              >
+                <span className="inline-flex items-center gap-2">
+                  <svg
+                    className="w-4 h-4 group-hover:animate-pulse"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round"
+                      d="M12 16V4m0 12l-4-4m4 4l4-4M4 20h16" />
+                  </svg>
+                  Download Resume
+                </span>
+              </a>
+            </div>
           </div>
+
+          {/* RIGHT —— PROFILE IMAGE (PREMIUM DESIGN) */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="relative"
+          >
+            {/* Outer Glow */}
+            <div className="absolute inset-0 rounded-full bg-gradient-to-br 
+        from-sky-500/40 via-indigo-500/30 to-purple-500/40 blur-2xl opacity-40">
+            </div>
+
+            {/* Gradient Ring */}
+            <div className="p-[4px] rounded-full bg-gradient-to-tr from-sky-400 via-indigo-400 to-purple-500">
+
+              <img
+                src="/profile.jpg"
+                alt="Yashwanth KS"
+                className="w-44 h-44 md:w-52 md:h-52 rounded-full object-cover 
+            border border-slate-800 shadow-xl shadow-black/40"
+              />
+            </div>
+          </motion.div>
+
         </motion.div>
       </Section>
+
+
 
       {/* ========================================================= */}
       {/* 2. SKILLS SECTION */}
