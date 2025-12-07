@@ -22,7 +22,7 @@ export default function HomePage() {
           className="text-center"
         >
           <p className="inline-flex items-center rounded-full border border-slate-700 bg-bg-soft/70 px-3 py-1 text-xs sm:text-sm text-slate-300 shadow">
-            Java Backend Developer · 3.5+ years
+            Software Engineer
           </p>
           <h1 className="mt-4 text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight">
             Hi, I&apos;m{" "}
