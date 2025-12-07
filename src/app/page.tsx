@@ -96,78 +96,67 @@ export default function HomePage() {
         >
           <h2 className="section-title">Projects</h2>
 
+          {/* PROJECT CARD — CLEAN VERSION WITHOUT IMAGE */}
           <motion.div
             whileHover={{ y: -4, scale: 1.01 }}
-            className="card p-6 sm:p-7 flex flex-col md:flex-row gap-6"
+            className="card p-6 sm:p-7 rounded-xl border border-slate-800 bg-gradient-to-br from-slate-900/60 to-slate-900/30 shadow-lg shadow-black/30"
           >
-            {/* Visual / diagram placeholder */}
-            <div className="md:w-1/3">
-              <div className="h-40 rounded-xl bg-gradient-to-br from-sky-500/20 via-indigo-500/20 to-purple-500/10 border border-slate-700 flex items-center justify-center text-xs sm:text-sm text-slate-300/90">
-                Architecture Diagram / API Flow<br />
-                <span className="text-slate-500">(Add an image later here)</span>
-              </div>
+
+            <h3 className="text-xl font-semibold text-sky-300 leading-tight">
+              Automated RPL/DPL Data Ingestion &amp; Consolidation System
+            </h3>
+
+            <p className="mt-3 text-sm sm:text-base text-slate-200/90">
+              A production-grade backend system that automates downloading, parsing,
+              normalizing, and consolidating global Restricted Party / Denied Party List
+              (RPL/DPL) datasets across multiple formats (CSV, JSON, XML, Excel).
+            </p>
+
+            <p className="mt-3 text-sm sm:text-base text-slate-200/90">
+              It features a reactive ingestion pipeline, incremental change detection
+              (insert/update/delete), duplicate-resolution logic, scheduler-based
+              automation for each data source, and optimized PostgreSQL persistence
+              using a unified schema.
+            </p>
+
+            <ul className="mt-4 space-y-2 text-sm sm:text-base text-slate-200/90 list-disc list-inside">
+              <li>Multi-format ingestion & data normalization workflows.</li>
+              <li>
+                Incremental change detection with duplicate handling (name/address).
+              </li>
+              <li>Scheduler-driven automation for each registered data source.</li>
+              <li>High-performance REST APIs with complete Swagger documentation.</li>
+            </ul>
+
+            {/* Tech badges */}
+            <div className="mt-5 flex flex-wrap gap-3 text-xs sm:text-sm">
+              {["Java", "Spring Boot", "Spring WebFlux", "PostgreSQL"].map((tech) => (
+                <span
+                  key={tech}
+                  className="rounded-full bg-slate-800 px-3 py-1 text-slate-200/90 border border-slate-700"
+                >
+                  {tech}
+                </span>
+              ))}
             </div>
 
-            {/* Project content */}
-            <div className="md:w-2/3">
-              <h3 className="text-xl font-semibold text-sky-300">
-                Automated RPL/DPL Data Ingestion &amp; Consolidation System
-              </h3>
-              <p className="mt-2 text-sm sm:text-base text-slate-200/90">
-                A production-style backend system that automates downloading,
-                parsing, normalizing, and consolidating global Restricted Party /
-                Denied Party List (RPL/DPL) datasets across multiple formats
-                (CSV, JSON, XML, Excel).
-              </p>
-              <p className="mt-2 text-sm sm:text-base text-slate-200/90">
-                Includes a reactive ingestion pipeline, incremental change
-                detection (insert / update / delete), a source registry with
-                schedulers, and optimized PostgreSQL persistence using a unified
-                schema.
-              </p>
-
-              <ul className="mt-3 space-y-2 text-sm sm:text-base text-slate-200/90 list-disc list-inside">
-                <li>Multi-format ingestion and data normalization.</li>
-                <li>
-                  Incremental change detection and duplicate handling (based on
-                  name / address).
-                </li>
-                <li>Scheduler-driven automation for each data source.</li>
-                <li>High-performance REST APIs with Swagger documentation.</li>
-              </ul>
-
-              <div className="mt-4 flex flex-wrap gap-3 text-xs sm:text-sm">
-                <span className="rounded-full bg-slate-800 px-3 py-1 text-slate-200/90">
-                  Java
-                </span>
-                <span className="rounded-full bg-slate-800 px-3 py-1 text-slate-200/90">
-                  Spring Boot
-                </span>
-                <span className="rounded-full bg-slate-800 px-3 py-1 text-slate-200/90">
-                  Spring WebFlux
-                </span>
-                <span className="rounded-full bg-slate-800 px-3 py-1 text-slate-200/90">
-                  PostgreSQL
-                </span>
-              </div>
-
-              {/* Buttons (optional – fill href later) */}
-              <div className="mt-4 flex flex-wrap gap-3 text-xs sm:text-sm">
-                <a
-                  href="#"
-                  className="rounded-md border border-slate-600 px-3 py-1.5 text-slate-100 hover:border-sky-400 hover:text-sky-300 transition"
-                >
-                  View Code (Coming soon)
-                </a>
-                <a
-                  href="#"
-                  className="rounded-md border border-slate-600 px-3 py-1.5 text-slate-100 hover:border-sky-400 hover:text-sky-300 transition"
-                >
-                  API Docs (Coming soon)
-                </a>
-              </div>
+            {/* Buttons (optional) */}
+            <div className="mt-6 flex flex-wrap gap-3 text-xs sm:text-sm">
+              <a
+                href="#"
+                className="rounded-md border border-slate-600 px-3 py-2 text-slate-100 hover:border-sky-400 hover:text-sky-300 transition"
+              >
+                View Code (Coming soon)
+              </a>
+              <a
+                href="#"
+                className="rounded-md border border-slate-600 px-3 py-2 text-slate-100 hover:border-sky-400 hover:text-sky-300 transition"
+              >
+                API Docs (Coming soon)
+              </a>
             </div>
           </motion.div>
+
         </motion.div>
       </Section>
 
@@ -281,15 +270,28 @@ export default function HomePage() {
         >
           <h2 className="section-title">Contact</h2>
           <div className="space-y-3 text-sm sm:text-base">
+
+            <p>
+              📞 Phone:{" "}
+              <a
+                className="text-sky-300 hover:text-sky-400"
+                href="tel:+916361435240"
+              >
+                +91 63614 35240
+              </a>
+            </p>
+
             <p>
               📧 Email:{" "}
               <a
-                className="text-sky-300 hover:text-sky-400"
                 href="mailto:yashwanthks574@gmail.com"
+                className="text-sky-300 hover:text-sky-400"
               >
                 yashwanthks574@gmail.com
               </a>
+
             </p>
+
             <p>
               💼 LinkedIn:{" "}
               <a
@@ -301,6 +303,7 @@ export default function HomePage() {
                 linkedin.com/in/yashwanthks98
               </a>
             </p>
+
             <p>
               🐙 GitHub:{" "}
               <a
@@ -312,8 +315,11 @@ export default function HomePage() {
                 github.com/yashwanthks1
               </a>
             </p>
+
             <p className="text-slate-400 text-sm mt-4">📍 Bangalore, India</p>
+
           </div>
+
         </motion.div>
 
         <p className="mt-8 mb-10 text-center text-xs text-slate-500">
