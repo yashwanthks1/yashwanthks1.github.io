@@ -33,11 +33,11 @@ export default function HomePage() {
             </p>
 
             <h1 className="text-4xl sm:text-6xl font-extrabold leading-tight flex flex-wrap items-center gap-3">
-              <span className="whitespace-nowrap">
-                Hi, I'm <span className="text-sky-400">Yashwanth K S</span>
-              </span>
+              {"Hi, I'm "}
+              <span className="text-sky-400">Yashwanth K S</span>
               <span className="wave text-5xl">👋</span>
             </h1>
+
 
 
 
