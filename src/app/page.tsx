@@ -12,7 +12,10 @@ const fadeUp = {
 export default function HomePage() {
   return (
     <main>
-      {/* HERO */}
+      {/* ========================================================= */}
+      {/* 1. HERO SECTION */}
+      {/* ========================================================= */}
+
       <Section id="hero" className="pt-28 sm:pt-32">
         <motion.div
           variants={fadeUp}
@@ -28,18 +31,17 @@ export default function HomePage() {
           <h1 className="mt-4 text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight">
             Hi, I&apos;m{" "}
             <span className="bg-gradient-to-r from-sky-400 to-indigo-400 bg-clip-text text-transparent">
-              Yashwanth KS
+              Yashwanth K S
             </span>{" "}
             👋
           </h1>
 
           <p className="mt-4 text-base sm:text-lg max-w-2xl mx-auto text-slate-300/90">
-            I design and build reliable, high-performance backend systems using{" "}
-            <span className="font-semibold text-sky-300">Java</span>,{" "}
+            I specialize in designing and building reliable, high-performance backend
+            systems using <span className="font-semibold text-sky-300">Java</span>,{" "}
             <span className="font-semibold text-sky-300">Spring Boot</span>,{" "}
-            <span className="font-semibold text-sky-300">Spring WebFlux</span>{" "}
-            and <span className="font-semibold text-sky-300">PostgreSQL</span>,
-            with a strong focus on automation, scalability, and clean
+            <span className="font-semibold text-sky-300">Spring WebFlux</span>,
+            and PostgreSQL — with a strong focus on scalability, automation, and clean
             architecture.
           </p>
 
@@ -60,7 +62,10 @@ export default function HomePage() {
         </motion.div>
       </Section>
 
-      {/* SKILLS (moved up) */}
+      {/* ========================================================= */}
+      {/* 2. SKILLS SECTION */}
+      {/* ========================================================= */}
+
       <Section id="skills">
         <motion.div
           variants={fadeUp}
@@ -70,12 +75,13 @@ export default function HomePage() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="section-title">Skills</h2>
+
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
             {skills.map((skill) => (
               <motion.div
                 key={skill}
                 whileHover={{ scale: 1.06, y: -2 }}
-                className="card border border-slate-800/80 bg-gradient-to-br from-slate-900/80 to-slate-900/40 px-3 py-2 text-sm sm:text-[0.9rem] text-center"
+                className="card border border-slate-800/80 bg-slate-900/40 px-3 py-2 text-sm sm:text-[0.9rem] text-center"
               >
                 {skill}
               </motion.div>
@@ -84,7 +90,10 @@ export default function HomePage() {
         </motion.div>
       </Section>
 
-      {/* PROJECTS (visual style) */}
+      {/* ========================================================= */}
+      {/* 3. PROJECTS SECTION */}
+      {/* ========================================================= */}
+
       <Section id="projects">
         <motion.div
           variants={fadeUp}
@@ -92,43 +101,37 @@ export default function HomePage() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.6 }}
-          className="space-y-6"
         >
           <h2 className="section-title">Projects</h2>
 
-          {/* PROJECT CARD — CLEAN VERSION WITHOUT IMAGE */}
+          {/* PROJECT CARD */}
           <motion.div
             whileHover={{ y: -4, scale: 1.01 }}
             className="card p-6 sm:p-7 rounded-xl border border-slate-800 bg-gradient-to-br from-slate-900/60 to-slate-900/30 shadow-lg shadow-black/30"
           >
-
             <h3 className="text-xl font-semibold text-sky-300 leading-tight">
               Automated RPL/DPL Data Ingestion &amp; Consolidation System
             </h3>
 
             <p className="mt-3 text-sm sm:text-base text-slate-200/90">
               A production-grade backend system that automates downloading, parsing,
-              normalizing, and consolidating global Restricted Party / Denied Party List
-              (RPL/DPL) datasets across multiple formats (CSV, JSON, XML, Excel).
+              normalizing, and consolidating global RPL/DPL datasets across formats
+              like CSV, JSON, XML, and Excel.
             </p>
 
             <p className="mt-3 text-sm sm:text-base text-slate-200/90">
-              It features a reactive ingestion pipeline, incremental change detection
-              (insert/update/delete), duplicate-resolution logic, scheduler-based
-              automation for each data source, and optimized PostgreSQL persistence
-              using a unified schema.
+              Includes a reactive ingestion pipeline, incremental change detection,
+              duplicate resolution, scheduler automation, and optimized PostgreSQL
+              persistence using a unified schema.
             </p>
 
             <ul className="mt-4 space-y-2 text-sm sm:text-base text-slate-200/90 list-disc list-inside">
-              <li>Multi-format ingestion & data normalization workflows.</li>
-              <li>
-                Incremental change detection with duplicate handling (name/address).
-              </li>
-              <li>Scheduler-driven automation for each registered data source.</li>
-              <li>High-performance REST APIs with complete Swagger documentation.</li>
+              <li>Multi-format ingestion & complex data normalization.</li>
+              <li>Incremental change detection with duplicate handling.</li>
+              <li>Scheduler-driven automated ingestion system.</li>
+              <li>High-performance REST APIs with Swagger documentation.</li>
             </ul>
 
-            {/* Tech badges */}
             <div className="mt-5 flex flex-wrap gap-3 text-xs sm:text-sm">
               {["Java", "Spring Boot", "Spring WebFlux", "PostgreSQL"].map((tech) => (
                 <span
@@ -139,61 +142,14 @@ export default function HomePage() {
                 </span>
               ))}
             </div>
-
-            {/* Buttons (optional) */}
-            <div className="mt-6 flex flex-wrap gap-3 text-xs sm:text-sm">
-              <a
-                href="#"
-                className="rounded-md border border-slate-600 px-3 py-2 text-slate-100 hover:border-sky-400 hover:text-sky-300 transition"
-              >
-                View Code (Coming soon)
-              </a>
-              <a
-                href="#"
-                className="rounded-md border border-slate-600 px-3 py-2 text-slate-100 hover:border-sky-400 hover:text-sky-300 transition"
-              >
-                API Docs (Coming soon)
-              </a>
-            </div>
           </motion.div>
-
         </motion.div>
       </Section>
 
-      {/* ABOUT (moved after projects) */}
-      <Section id="about">
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.6 }}
-          className="card p-6 sm:p-8"
-        >
-          <h2 className="section-title">About Me</h2>
-          <div className="space-y-4 text-slate-200/90 text-sm sm:text-base leading-relaxed">
-            <p>
-              I&apos;m a Java Backend Developer with 3.5+ years of experience
-              designing and building enterprise-grade microservices using Spring
-              Boot, Spring WebFlux, and Spring Security.
-            </p>
-            <p>
-              I specialize in automation workflows, multi-format data ingestion,
-              incremental update engines, and clean backend architectures.
-              I&apos;ve worked in domains like Global Trade Management (GTM),
-              Trade Content Management (TCM), and Content Distribution Systems
-              (CDS).
-            </p>
-            <p>
-              I enjoy solving complex backend problems, optimizing performance,
-              and collaborating with frontend teams to ship reliable, scalable
-              systems.
-            </p>
-          </div>
-        </motion.div>
-      </Section>
+      {/* ========================================================= */}
+      {/* 4. EXPERIENCE SECTION */}
+      {/* ========================================================= */}
 
-      {/* EXPERIENCE */}
       <Section id="experience">
         <motion.div
           variants={fadeUp}
@@ -205,60 +161,89 @@ export default function HomePage() {
         >
           <h2 className="section-title">Experience</h2>
 
+          {/* JOB 1 */}
           <div className="card p-6 sm:p-7">
             <h3 className="text-xl font-semibold text-sky-300">
               Software Engineer — Mihaan ITS{" "}
               <span className="text-slate-400">(Jun 2024 – Present)</span>
             </h3>
+
             <ul className="mt-3 space-y-2 text-sm sm:text-base text-slate-200/90 list-disc list-inside">
+              <li>Developing high-performance reactive APIs using WebFlux.</li>
+              <li>Designed multi-format ingestion pipelines (JSON, XML, Excel).</li>
               <li>
-                Built and optimized reactive CRUD APIs for Global Trade
-                Management using Spring WebFlux.
+                Implemented incremental update logic to keep large datasets in sync.
               </li>
+              <li>Normalization logic reduces manual cleanup effort significantly.</li>
               <li>
-                Engineered multi-format ingestion pipelines for JSON, XML, and
-                Excel-based RPL files.
-              </li>
-              <li>
-                Implemented robust incremental update logic (insert / update /
-                delete) to keep data in sync.
-              </li>
-              <li>
-                Reduced manual data cleanup effort through normalization and
-                preprocessing flows.
-              </li>
-              <li>
-                Contributed to a tenant-based content distribution system for
-                automated trade content delivery.
+                Part of a tenant-based content distribution platform for global trade
+                management.
               </li>
             </ul>
           </div>
 
+          {/* JOB 2 */}
           <div className="card p-6 sm:p-7">
             <h3 className="text-xl font-semibold text-sky-300">
               Junior Software Engineer — Wissen Infotech{" "}
               <span className="text-slate-400">(Mar 2022 – Jan 2024)</span>
             </h3>
+
             <ul className="mt-3 space-y-2 text-sm sm:text-base text-slate-200/90 list-disc list-inside">
               <li>Developed Spring Boot microservices for enterprise systems.</li>
-              <li>
-                Implemented JWT-based authentication and authorization for
-                secure REST APIs.
-              </li>
-              <li>
-                Worked on billing automation and workflow optimization for
-                government projects.
-              </li>
-              <li>
-                Improved code quality and reliability with JUnit5, Mockito, and
-                SonarQube-driven refactoring.
-              </li>
+              <li>Implemented secure JWT-based authentication for REST APIs.</li>
+              <li>Worked on billing automation for government projects.</li>
+              <li>Improved code quality with JUnit5, Mockito & SonarQube.</li>
             </ul>
           </div>
         </motion.div>
       </Section>
 
-      {/* CONTACT – slightly improved layout */}
+      {/* ========================================================= */}
+      {/* 5. ABOUT SECTION */}
+      {/* ========================================================= */}
+
+      <Section id="about">
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.6 }}
+          className="card p-6 sm:p-8"
+        >
+          <h2 className="section-title">About Me</h2>
+
+          <div className="space-y-4 text-slate-200/90 text-sm sm:text-base leading-relaxed">
+            <p>
+              I&apos;m a Java Backend Developer with over 3.5+ years of experience
+              building scalable enterprise systems using Spring Boot, Microservices,
+              and Spring WebFlux.
+            </p>
+
+            <p>
+              I specialize in automation, ingestion workflows, incremental update
+              engines, and designing clean backend architectures for complex
+              datasets.
+            </p>
+
+            <p>
+              My work spans domains like Global Trade Management (GTM), Trade
+              Content Management (TCM), and Content Distribution Systems (CDS).
+            </p>
+
+            <p>
+              Outside of work, I enjoy learning new backend technologies, system
+              design concepts, and optimizing performance in real workflows.
+            </p>
+          </div>
+        </motion.div>
+      </Section>
+
+      {/* ========================================================= */}
+      {/* 6. CONTACT SECTION */}
+      {/* ========================================================= */}
+
       <Section id="contact">
         <motion.div
           variants={fadeUp}
@@ -269,27 +254,26 @@ export default function HomePage() {
           className="card p-6 sm:p-7"
         >
           <h2 className="section-title">Contact</h2>
-          <div className="space-y-3 text-sm sm:text-base">
 
+          <div className="space-y-3 text-sm sm:text-base">
             <p>
               📞 Phone:{" "}
               <a
                 className="text-sky-300 hover:text-sky-400"
-                href="tel:+916361435240"
+                href="tel:+917019198836"
               >
-                +91 63614 35240
+                +91 70191 98836
               </a>
             </p>
 
             <p>
               📧 Email:{" "}
               <a
-                href="mailto:yashwanthks574@gmail.com"
                 className="text-sky-300 hover:text-sky-400"
+                href="mailto:yashwanthks574@gmail.com"
               >
                 yashwanthks574@gmail.com
               </a>
-
             </p>
 
             <p>
@@ -317,13 +301,11 @@ export default function HomePage() {
             </p>
 
             <p className="text-slate-400 text-sm mt-4">📍 Bangalore, India</p>
-
           </div>
-
         </motion.div>
 
         <p className="mt-8 mb-10 text-center text-xs text-slate-500">
-          Designed &amp; Built by Yashwanth K S · {new Date().getFullYear()}
+          Designed & Built by Yashwanth K S · {new Date().getFullYear()}
         </p>
       </Section>
     </main>
