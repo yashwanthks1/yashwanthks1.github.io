@@ -1,0 +1,17 @@
+export const skills = [
+  "Java",
+  "Spring Boot",
+  "Spring WebFlux",
+  "REST APIs",
+  "Microservices",
+  "Spring Security (JWT)",
+  "Hibernate / JPA",
+  "PostgreSQL",
+  "MySQL",
+  "Docker",
+  "Git & GitHub",
+  "GitHub Actions",
+  "JUnit5 & Mockito",
+  "JSON / XML Processing",
+  "Reactive Programming",
+];
