@@ -319,9 +319,9 @@ export default function HomePage() {
               📞 Phone:{" "}
               <a
                 className="text-sky-300 hover:text-sky-400"
-                href="tel:+917019198836"
+                href="tel:+916361435240"
               >
-                +91 70191 98836
+                +91 63614 35240
               </a>
             </p>
 
