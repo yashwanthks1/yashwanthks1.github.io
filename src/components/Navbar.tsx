@@ -1,19 +1,43 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
+  const [isShrunk, setIsShrunk] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setIsShrunk(true);
+      } else {
+        setIsShrunk(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-lg border-b border-slate-800 shadow-lg">
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+    <header
+      className={`
+        fixed top-0 left-0 right-0 z-50 
+        bg-slate-950/80 backdrop-blur-lg border-b border-slate-800 
+        transition-all duration-300 ease-in-out
+        ${isShrunk ? "py-2 shadow-lg" : "py-4"}
+      `}
+    >
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-6">
 
         {/* Logo */}
         <Link
           href="/"
-          className="text-xl font-semibold text-sky-300 hover:text-sky-400 transition"
+          className="
+            text-xl font-semibold text-sky-300 
+            hover:text-sky-400 transition
+          "
         >
           Yashwanth K S
         </Link>
@@ -40,9 +64,10 @@ export function Navbar() {
       {/* Mobile Menu */}
       <div
         className={`md:hidden bg-slate-950/95 border-t border-slate-800 
-        flex flex-col px-6 py-5 text-base space-y-4
-        transition-all duration-300 ease-in-out
-        ${open ? "opacity-100 max-h-96" : "opacity-0 max-h-0 overflow-hidden"}`}
+          flex flex-col px-6 text-base
+          transition-all duration-300 ease-in-out overflow-hidden
+          ${open ? "max-h-96 py-4 space-y-4 opacity-100" : "max-h-0 opacity-0"}
+        `}
       >
         <Link href="#hero" className="nav-link" onClick={() => setOpen(false)}>Home</Link>
         <Link href="#about" className="nav-link" onClick={() => setOpen(false)}>About</Link>

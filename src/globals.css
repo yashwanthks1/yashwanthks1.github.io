@@ -27,23 +27,14 @@ main {
   @apply rounded-2xl bg-bg-soft/80 border border-slate-800/80 shadow-xl shadow-slate-900/50 backdrop-blur;
 }
 
-
-.nav-link {
-  color: #cbd5e1;
-  transition: 0.2s ease;
-}
-
-.nav-link:hover {
-  color: #38bdf8;
-}
-
 .nav-link {
   display: block;
-  width: fit-content;
   padding: 6px 0;
-  transition: color 0.2s ease-in-out;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .nav-link:hover {
-  color: #38bdf8; /* sky-400 */
+  color: #38bdf8;  /* sky-400 */
+  transform: translateX(2px);
 }
+
