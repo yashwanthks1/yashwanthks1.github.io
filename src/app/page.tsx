@@ -15,109 +15,80 @@ export default function HomePage() {
       {/* ========================================================= */}
       {/* 1. HERO SECTION — PREMIUM DESIGN */}
       {/* ========================================================= */}
+      <section id="hero" className="pt-32 pb-16 sm:pt-40 sm:pb-24">
+        <div className="max-w-6xl mx-auto flex flex-col-reverse sm:flex-row items-center gap-10">
 
-      <Section id="hero" className="pt-28 sm:pt-32">
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          transition={{ duration: 0.7 }}
-          className="flex flex-col md:flex-row items-center md:items-start gap-12 md:gap-20"
-        >
+          {/* Left Content */}
+          <div className="flex-1">
 
-          {/* LEFT —— TEXT CONTENT */}
-          <div className="text-center md:text-left max-w-2xl">
-
-            <p className="inline-flex items-center rounded-full border border-slate-700 bg-slate-900/40 px-3 py-1 text-xs sm:text-sm text-slate-300 shadow">
+            {/* Tagline */}
+            <p className="inline-flex items-center rounded-full border border-slate-700 bg-bg-soft/70 px-4 py-1 text-sm sm:text-base text-slate-300">
               Backend Engineer · Building scalable systems with Java
             </p>
 
-            <h1 className="text-4xl sm:text-6xl font-extrabold leading-tight flex flex-wrap items-center gap-3">
+            {/* Heading */}
+            <h1 className="mt-5 text-4xl sm:text-6xl font-extrabold leading-tight flex items-center gap-3 whitespace-nowrap">
               {"Hi, I'm "}
               <span className="text-sky-400">Yashwanth K S</span>
               <span className="wave text-5xl">👋</span>
             </h1>
 
-
-
-
-            <p className="mt-4 text-base sm:text-lg text-slate-300/90">
-              I build scalable backend systems using{" "}
-              <span className="text-sky-300 font-semibold">Java</span>,{" "}
-              <span className="text-sky-300 font-semibold">Spring Boot</span>,{" "}
-              <span className="text-sky-300 font-semibold">WebFlux</span>, and PostgreSQL —
-              focused on automation, performance, and clean architecture.
+            {/* Description */}
+            <p className="mt-6 text-lg text-slate-300 max-w-xl">
+              I build scalable backend systems using <span className="text-sky-400">Java</span>,
+              <span className="text-sky-400"> Spring Boot</span>, <span className="text-sky-400">WebFlux</span>,
+              and PostgreSQL — focused on automation, performance, and clean architecture.
             </p>
 
-            {/* BUTTONS */}
+            {/* Buttons */}
             <div className="mt-8 flex flex-wrap gap-4">
-
-              <a
-                href="#projects"
-                className="rounded-full bg-sky-500 px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-sky-500/40 hover:bg-sky-400 transition"
-              >
+              <a href="#projects" className="rounded-full bg-sky-500 hover:bg-sky-400 px-6 py-3 text-black font-medium shadow-lg">
                 View Projects
               </a>
-
-              <a
-                href="#contact"
-                className="rounded-full border border-slate-600 px-5 py-2.5 text-sm font-semibold text-slate-100 hover:border-sky-400 hover:text-sky-300 transition"
-              >
+              <a href="#contact" className="rounded-full border border-slate-500 px-6 py-3 font-medium">
                 Contact Me
               </a>
-
               {/* === PREMIUM RESUME BUTTON === */}
-              <a
-                href="/resume/Yashwanth-KS-Resume.pdf"
+             <a
+                href="/resume/Yashwanth K S.pdf"
                 download
-                className="group rounded-full px-5 py-2.5 text-sm font-semibold transition
-            bg-gradient-to-r from-emerald-500 to-teal-400 text-slate-950
-            shadow-lg shadow-emerald-500/30 hover:shadow-emerald-400/40
-            hover:scale-[1.03]"
+                className="group inline-flex items-center justify-center gap-2 
+                rounded-full px-6 py-3 text-sm font-semibold transition
+                bg-gradient-to-r from-emerald-500 to-teal-400 text-slate-950
+                shadow-lg shadow-emerald-500/30 hover:shadow-emerald-400/40
+                hover:scale-[1.03]"
               >
-                <span className="inline-flex items-center gap-2">
-                  <svg
-                    className="w-4 h-4 group-hover:animate-pulse"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round"
-                      d="M12 16V4m0 12l-4-4m4 4l4-4M4 20h16" />
-                  </svg>
-                  Download Resume
-                </span>
+                <svg
+                  className="w-5 h-5 group-hover:animate-pulse"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round"
+                    d="M12 16V4m0 12l-4-4m4 4l4-4M4 20h16" />
+                </svg>
+
+                <span>Download Resume</span>
               </a>
             </div>
           </div>
 
-          {/* RIGHT —— PROFILE IMAGE (PREMIUM DESIGN) */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative"
-          >
-            {/* Outer Glow */}
-            <div className="absolute inset-0 rounded-full bg-gradient-to-br 
-        from-sky-500/40 via-indigo-500/30 to-purple-500/40 blur-2xl opacity-40">
-            </div>
-
-            {/* Gradient Ring */}
-            <div className="p-[4px] rounded-full bg-gradient-to-tr from-sky-400 via-indigo-400 to-purple-500">
-
+          {/* Right Profile Image */}
+          <div className="flex-1 flex justify-center">
+            <div className="relative w-44 h-44 sm:w-64 sm:h-64 rounded-full border border-slate-700
+        bg-gradient-to-br from-sky-400/40 to-purple-500/40 overflow-hidden shadow-xl">
               <img
                 src="/profile.jpg"
                 alt="Yashwanth KS"
-                className="w-44 h-44 md:w-52 md:h-52 rounded-full object-cover 
-            border border-slate-800 shadow-xl shadow-black/40"
+                className="w-full h-full object-cover"
               />
             </div>
-          </motion.div>
+          </div>
 
-        </motion.div>
-      </Section>
+        </div>
+      </section>
+
 
 
 
