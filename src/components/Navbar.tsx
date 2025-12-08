@@ -1,81 +1,98 @@
 "use client";
 
-import Link from "next/link";
 import { useState, useEffect } from "react";
+import Link from "next/link";
+import { FiMenu, FiX } from "react-icons/fi";
 
-export function Navbar() {
-  const [open, setOpen] = useState(false);
-  const [isShrunk, setIsShrunk] = useState(false);
+export const Navbar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [active, setActive] = useState("home");
 
+  // Close menu on route/scroll
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setIsShrunk(true);
-      } else {
-        setIsShrunk(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const handler = () => setMenuOpen(false);
+    window.addEventListener("scroll", handler);
+    return () => window.removeEventListener("scroll", handler);
   }, []);
 
-  return (
-    <header
-      className={`
-        fixed top-0 left-0 right-0 z-50 
-        bg-slate-950/80 backdrop-blur-lg border-b border-slate-800 
-        transition-all duration-300 ease-in-out
-        ${isShrunk ? "py-2 shadow-lg" : "py-4"}
-      `}
-    >
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-6">
+  // Smooth scrolling
+  const scrollToSection = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      const offset = 80; // navbar height
+      const top = el.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: "smooth" });
+    }
+    setActive(id);
+    setMenuOpen(false);
+  };
 
-        {/* Logo */}
+  const navLinks = [
+    { label: "Home", id: "hero" },
+    { label: "About", id: "about" },
+    { label: "Skills", id: "skills" },
+    { label: "Experience", id: "experience" },
+    { label: "Projects", id: "projects" },
+    { label: "Contact", id: "contact" },
+  ];
+
+  return (
+    <header className="fixed top-0 left-0 w-full z-50 bg-bg/80 backdrop-blur-lg border-b border-slate-800">
+      <nav className="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+
+        {/* LOGO */}
         <Link
-          href="/"
-          className="
-            text-xl font-semibold text-sky-300 
-            hover:text-sky-400 transition
-          "
+          href="#hero"
+          onClick={() => scrollToSection("hero")}
+          className="text-xl sm:text-2xl font-bold text-sky-400"
         >
           Yashwanth K S
         </Link>
 
-        {/* Desktop Menu */}
-        <nav className="hidden md:flex items-center gap-10 text-base">
-          <Link href="#hero" className="nav-link">Home</Link>
-          <Link href="#about" className="nav-link">About</Link>
-          <Link href="#skills" className="nav-link">Skills</Link>
-          <Link href="#experience" className="nav-link">Experience</Link>
-          <Link href="#projects" className="nav-link">Projects</Link>
-          <Link href="#contact" className="nav-link">Contact</Link>
-        </nav>
+        {/* DESKTOP MENU */}
+        <ul className="hidden sm:flex items-center gap-8 text-slate-300">
+          {navLinks.map((link) => (
+            <li key={link.id}>
+              <button
+                onClick={() => scrollToSection(link.id)}
+                className={`nav-link ${
+                  active === link.id ? "text-sky-400 font-semibold" : ""
+                }`}
+              >
+                {link.label}
+              </button>
+            </li>
+          ))}
+        </ul>
 
-        {/* Mobile Button */}
+        {/* MOBILE MENU BUTTON */}
         <button
-          className="md:hidden text-slate-300 hover:text-sky-400 transition text-3xl"
-          onClick={() => setOpen(!open)}
+          className="sm:hidden text-sky-400 text-3xl"
+          onClick={() => setMenuOpen(!menuOpen)}
         >
-          {open ? "✕" : "☰"}
+          {menuOpen ? <FiX /> : <FiMenu />}
         </button>
-      </div>
+      </nav>
 
-      {/* Mobile Menu */}
-      <div
-        className={`md:hidden bg-slate-950/95 border-t border-slate-800 
-          flex flex-col px-6 text-base
-          transition-all duration-300 ease-in-out overflow-hidden
-          ${open ? "max-h-96 py-4 space-y-4 opacity-100" : "max-h-0 opacity-0"}
-        `}
-      >
-        <Link href="#hero" className="nav-link" onClick={() => setOpen(false)}>Home</Link>
-        <Link href="#about" className="nav-link" onClick={() => setOpen(false)}>About</Link>
-        <Link href="#skills" className="nav-link" onClick={() => setOpen(false)}>Skills</Link>
-        <Link href="#experience" className="nav-link" onClick={() => setOpen(false)}>Experience</Link>
-        <Link href="#projects" className="nav-link" onClick={() => setOpen(false)}>Projects</Link>
-        <Link href="#contact" className="nav-link" onClick={() => setOpen(false)}>Contact</Link>
-      </div>
+      {/* MOBILE DROPDOWN MENU */}
+      {menuOpen && (
+        <div className="sm:hidden bg-bg/95 backdrop-blur-lg border-t border-slate-700 py-4 px-6">
+          <ul className="flex flex-col gap-6 text-lg text-slate-200">
+            {navLinks.map((link) => (
+              <li key={link.id}>
+                <button
+                  onClick={() => scrollToSection(link.id)}
+                  className={`w-full text-left ${
+                    active === link.id ? "text-sky-400 font-semibold" : ""
+                  }`}
+                >
+                  {link.label}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </header>
   );
-}
+};

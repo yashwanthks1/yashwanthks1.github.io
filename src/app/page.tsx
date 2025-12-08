@@ -13,84 +13,87 @@ export default function HomePage() {
   return (
     <main>
       {/* ========================================================= */}
-      {/* 1. HERO SECTION — PREMIUM DESIGN */}
+      {/* 1. HERO SECTION — FINAL FIXED LAYOUT */}
       {/* ========================================================= */}
       <section id="hero" className="pt-32 pb-16 sm:pt-40 sm:pb-24">
-        <div className="max-w-6xl mx-auto flex flex-col-reverse sm:flex-row items-center gap-10">
+        {/* IMPORTANT: flex-col (NOT flex-col-reverse) */}
+        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center sm:items-start gap-10">
 
-          {/* Left Content */}
-          <div className="flex-1">
-
+          {/* TEXT FIRST — always above image on mobile */}
+          <div className="flex-1 text-center sm:text-left">
             {/* Tagline */}
             <p className="inline-flex items-center rounded-full border border-slate-700 bg-bg-soft/70 px-4 py-1 text-sm sm:text-base text-slate-300">
               Backend Engineer · Building scalable systems with Java
             </p>
 
             {/* Heading */}
-            <h1 className="mt-5 text-4xl sm:text-6xl font-extrabold leading-tight flex items-center gap-3 whitespace-nowrap">
-              {"Hi, I'm "}
-              <span className="text-sky-400">Yashwanth K S</span>
+            <h1 className="mt-5 text-4xl sm:text-6xl font-extrabold leading-tight flex flex-wrap justify-center sm:justify-start gap-3">
+              Hi, I&apos;m <span className="text-sky-400">Yashwanth K S</span>
               <span className="wave text-5xl">👋</span>
             </h1>
 
             {/* Description */}
-            <p className="mt-6 text-lg text-slate-300 max-w-xl">
+            <p className="mt-6 text-lg text-slate-300 max-w-xl mx-auto sm:mx-0">
               I build scalable backend systems using <span className="text-sky-400">Java</span>,
-              <span className="text-sky-400"> Spring Boot</span>, <span className="text-sky-400">WebFlux</span>,
-              and PostgreSQL — focused on automation, performance, and clean architecture.
+              <span className="text-sky-400"> Spring Boot</span>,
+              <span className="text-sky-400"> WebFlux</span>, and PostgreSQL —
+              focused on automation, performance, and clean architecture.
             </p>
 
             {/* Buttons */}
-            <div className="mt-8 flex flex-wrap gap-4">
-              <a href="#projects" className="rounded-full bg-sky-500 hover:bg-sky-400 px-6 py-3 text-black font-medium shadow-lg">
+            <div className="mt-8 flex flex-wrap justify-center sm:justify-start gap-4">
+              <a
+                href="#projects"
+                className="rounded-full bg-sky-500 hover:bg-sky-400 px-6 py-3 text-black font-medium shadow-lg"
+              >
                 View Projects
               </a>
-              <a href="#contact" className="rounded-full border border-slate-500 px-6 py-3 font-medium">
+
+              <a
+                href="#contact"
+                className="rounded-full border border-slate-500 px-6 py-3 font-medium"
+              >
                 Contact Me
               </a>
-              {/* === PREMIUM RESUME BUTTON === */}
-             <a
+
+              <a
                 href="/resume/Yashwanth K S.pdf"
                 download
-                className="group inline-flex items-center justify-center gap-2 
-                rounded-full px-6 py-3 text-sm font-semibold transition
-                bg-gradient-to-r from-emerald-500 to-teal-400 text-slate-950
-                shadow-lg shadow-emerald-500/30 hover:shadow-emerald-400/40
-                hover:scale-[1.03]"
+                className="group rounded-full px-6 py-3 text-sm font-semibold transition
+          bg-gradient-to-r from-emerald-500 to-teal-400 text-slate-950
+          shadow-lg shadow-emerald-500/30 hover:shadow-emerald-400/40
+          hover:scale-[1.03]"
               >
-                <svg
-                  className="w-5 h-5 group-hover:animate-pulse"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round"
-                    d="M12 16V4m0 12l-4-4m4 4l4-4M4 20h16" />
-                </svg>
-
-                <span>Download Resume</span>
+                <span className="inline-flex items-center gap-2">
+                  <svg
+                    className="w-4 h-4 group-hover:animate-pulse"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round"
+                      d="M12 16V4m0 12l-4-4m4 4l4-4M4 20h16" />
+                  </svg>
+                  Download Resume
+                </span>
               </a>
             </div>
           </div>
 
-          {/* Right Profile Image */}
-          <div className="flex-1 flex justify-center">
+          {/* IMAGE SECOND — always below text on mobile */}
+          <div className="flex-1 flex justify-center sm:justify-end mt-8 sm:mt-0">
             <div className="relative w-44 h-44 sm:w-64 sm:h-64 rounded-full border border-slate-700
         bg-gradient-to-br from-sky-400/40 to-purple-500/40 overflow-hidden shadow-xl">
               <img
                 src="/profile.jpg"
-                alt="Yashwanth KS"
+                alt="Yashwanth K S"
                 className="w-full h-full object-cover"
               />
             </div>
           </div>
-
         </div>
       </section>
-
-
-
 
       {/* ========================================================= */}
       {/* 2. SKILLS SECTION */}
