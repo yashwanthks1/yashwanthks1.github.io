@@ -249,7 +249,7 @@ export default function HomePage() {
 
           <div className="space-y-4 text-slate-200/90 text-sm sm:text-base leading-relaxed">
             <p>
-              I&apos;m a Java Backend Developer with over 3.5+ years of experience
+              I&apos;m a Java Backend Developer with over 4+ years of experience
               building scalable enterprise systems using Spring Boot, Microservices,
               and Spring WebFlux.
             </p>
